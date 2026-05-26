@@ -1,0 +1,206 @@
+:root{
+    --fondo:#0D1117;
+    --moradiro:#A370F7;
+    --celes:#00F0FF;
+    --grisesito:#C9D1D9;
+}
+
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nova-square-regular {
+  font-family: "Nova Square", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.saira-stencil-regular {
+  font-family: "Saira Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+html {
+    font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+@media(min-width: 720px) {
+  
+}
+
+body {
+  background-color: var(--fondo);
+  margin: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    height: 100vh;
+    gap: 0;
+    background-color: var(--fondo);
+    overflow: hidden;
+}
+
+.col-izquierda {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+    padding-left: 8%; 
+    padding-bottom: 12vh; 
+    gap: 1.5rem; 
+    height: 100%;
+}
+
+.logo {
+    width: 50rem;
+    margin-bottom: 3rem; 
+}
+
+.iniciar {
+    width: 45rem;
+    height: auto;
+    margin-bottom: 0; 
+}
+
+.yes-no {
+    display: flex;
+    gap: 3rem;
+    width: 45rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem; 
+}
+
+.si, .opcion, .negativo {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 3.2rem;
+    margin: 0;
+    color: var(--grisesito);
+    text-transform: uppercase;
+}
+
+.si, .negativo {
+    position: relative;
+    cursor: pointer;
+}
+
+.si::after, .negativo::after {
+    content: "";
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* triángulo CSS */
+    width: 0;
+    height: 0;
+    border-left: 1.4rem solid transparent;
+    border-right: 1.4rem solid transparent;
+    border-bottom: 1.5rem solid var(--grisesito);
+    
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.si:hover::after, .negativo:hover::after {
+    opacity: 1;
+}
+
+.negativo {
+    position: relative;
+    cursor: pointer;
+}
+
+.negativo::before {
+    content: "YES";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--grisesito);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.negativo:hover {
+    color: transparent;
+}
+
+.negativo:hover::before {
+    opacity: 1;
+}
+
+.yes-no a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contenedor-video {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    height: 100%;
+    padding: 0 6rem 0 4rem; 
+}
+
+.animacion {
+    width: 100%;
+    height: 90vh; 
+    object-fit: cover;
+    border: 2px solid var(--celes);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+@media(max-width: 720px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+
+    .col-izquierda {
+        align-items: center;
+        padding-left: 0;
+        padding-bottom: 4vh;
+        padding-top: 4vh;
+    }
+
+    .iniciar {
+        width: 90vw;
+    }
+
+    .yes-no {
+        width: 90vw;
+    }
+
+    .si, .opcion, .negativo {
+        font-size: 2.4rem;
+    }
+
+    .contenedor-video {
+        padding: 0 2rem 4rem 2rem;
+        align-items: center;
+    }
+
+    .animacion {
+        height: 50vh;
+    }
+}
+
+

@@ -1,0 +1,882 @@
+:root{
+    --fondo:#0D1117;
+    --moradiro:#A370F7;
+    --celes:#00F0FF;
+    --grisesito:#C9D1D9;
+}
+
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nova-square-regular {
+  font-family: "Nova Square", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.saira-stencil-regular {
+  font-family: "Saira Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/* ============================================
+   Database Mini-SPA
+   ============================================ */
+
+.database-panel {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Barra de tabs --- */
+
+.db-tabs-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 16px 0;
+    border-bottom: 1px solid var(--celes);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.db-tabs-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Cada tab --- */
+
+.db-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px 9px;
+    cursor: pointer;
+    font-family: "Nova Square", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color:var(--grisesito);
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    white-space: nowrap;
+    position: relative;
+    bottom: -1px;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.db-tab:hover {
+    color: var(--grisesito);
+    border-color: var(--celes);
+}
+
+.db-tab.active {
+    color: var(--moradiro);
+    border-color: var(--moradiro);
+    border-bottom: 1px solid var(--fondo);
+}
+
+/* --- Punto indicador --- */
+
+.db-tab-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--moradiro);
+    display: none;
+    flex-shrink: 0;
+}
+
+.db-tab.active .db-tab-dot {
+    display: block;
+}
+
+/* --- Panel de contenido --- */
+
+.db-panel {
+    padding: 24px 16px;
+}
+
+/* ============================================
+   Carrusel
+   ============================================ */
+
+.db-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px 0;
+    width: 100%;
+}
+
+.db-carousel-item img {
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.db-carousel-item.db-center img {
+    width: 320px;
+    height: 400px;
+    opacity: 1;
+}
+
+.db-carousel-item.db-side {
+    cursor: pointer;
+}
+
+.db-carousel-item.db-side img {
+    width: 200px;
+    height: 260px;
+    opacity: 0.4;
+}
+
+.db-carousel-item.db-side:hover img {
+    opacity: 0.65;
+}
+
+.db-section-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ============================================
+   Renders - Visor
+   ============================================ */
+
+.renders-layout {
+    display: flex;
+    gap: 16px;
+    height: 480px;
+}
+
+.renders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+    max-width: 180px;
+    overflow: visible;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 100%;
+}
+
+.renders-file {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border: 1px solid rgba(201, 209, 217, 0.2);
+    cursor: pointer;
+    font-family: "Nova Square", sans-serif;
+    font-size: 9px;
+    color: var(--grisesito);
+    background: rgba(0, 0, 0, 0.4);
+    transform: skewX(-10deg);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.renders-file:hover,
+.renders-file.active {
+    color: var(--celes);
+    border-color: var(--celes);
+    box-shadow: -4px 0 0 var(--celes);
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.renders-file-icon {
+    font-size: 9px;
+    color: var(--moradiro);
+    flex-shrink: 0;
+    transform: skewX(10deg);
+}
+
+.renders-file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transform: skewX(10deg);
+}
+
+.renders-viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.renders-viewer-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--moradiro);
+    border-radius: 4px;
+    overflow: hidden;
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
+    flex-shrink: 0;
+}
+
+.renders-viewer-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.renders-meta {
+    display: flex;
+    gap: 16px;
+    padding: 8px 12px;
+    border: 1px solid var(--celes);
+    border-radius: 4px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.renders-meta-item {
+    font-family: "Nova Square", sans-serif;
+    font-size: 10px;
+    color: var(--grisesito);
+}
+
+.renders-meta-key {
+    color: var(--celes);
+}
+
+/* ============================================
+   Editorial - Spread
+   ============================================ */
+
+.editorial-spread {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 0;
+    width: 100%;
+}
+
+.editorial-book {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+}
+
+.editorial-page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--moradiro);
+}
+
+.editorial-page img {
+    max-width: 660px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.editorial-pagenum {
+    position: absolute;
+    bottom: 6px;
+    font-size: 7px;
+    color: var(--moradiro);
+}
+
+.editorial-page.left-page .editorial-pagenum {
+    left: 8px;
+}
+
+.editorial-page.right-page .editorial-pagenum {
+    right: 8px;
+}
+
+.editorial-arrow {
+    background: transparent;
+    border: 1px solid var(--moradiro);
+    color: var(--moradiro);
+    border-radius: 4px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.editorial-arrow:hover {
+    color: var(--celes);
+    border-color: var(--celes);
+}
+
+.editorial-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px 16px;
+}
+
+.editorial-label {
+    font-size: 7px;
+    color: var(--celes);
+    white-space: nowrap;
+}
+
+.editorial-progress-bar {
+    flex: 1;
+    height: 2px;
+    background: var(--moradiro);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.editorial-progress-fill {
+    height: 100%;
+    background: var(--celes);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* ============================================
+   Edición - Monitor Triple
+   ============================================ */
+
+.edicion-monitors {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    padding: 24px 0;
+    height: 650px;
+    max-height: 650px;
+}
+
+.edicion-monitor {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+    min-height: 0;
+}
+
+.edicion-monitor.focus {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    border: 1px solid var(--celes);
+}
+
+.edicion-monitor.secondary {
+    grid-column: 1;
+    border: 1px solid var(--moradiro);
+    opacity: 0.5;
+    cursor: pointer;
+    min-height: 0;
+}
+
+.edicion-monitor.secondary:hover {
+    opacity: 0.75;
+}
+
+.edicion-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: var(--fondo);
+    min-height: 0;
+    flex: 1;
+}
+
+.edicion-label {
+    font-size: 9px;
+    color: var(--grisesito);
+    padding: 4px 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.edicion-monitor.focus .edicion-label {
+    color: var(--celes);
+}
+.edicion-monitor.focus .edicion-video {
+    object-fit: contain;
+}
+
+/* ============================================
+   Pieces - Carrusel Neón Dinámico
+   ============================================ */
+
+.pieces-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transform: translateX(-250px); 
+}
+
+.pieces-track {
+    display: flex;
+    align-items: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.pieces-card {
+    min-width: 285px; 
+    height: 429px;    
+    margin: 0 27px;   /* Para dar el espaciado y sumar los 340px del JS */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.pieces-img-container {
+    position: absolute;
+    inset: 0;
+    border-radius: 47px;
+    overflow: hidden;
+}
+
+.pieces-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pieces-border {
+    position: absolute;
+    inset: 0;
+    border: 4px solid white;
+    border-radius: 47px;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+}
+
+.pieces-name {
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+    /* Usa la tipografía pixelada táctica que ya tienes configurada */
+    font-size: 14px;
+}
+
+/* --- Estados del Carrusel --- */
+
+.pieces-card.is-center {
+    transform: scale(1.15); 
+    z-index: 20;
+    filter: brightness(1.1) blur(0);
+}
+
+.pieces-card.is-center .pieces-border {
+    /* El neón toma el color de la variable inyectada desde JS */
+    border-color: var(--neon);
+    box-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
+}
+
+.pieces-card.is-center .pieces-name {
+    font-size: 20px;
+    opacity: 1;
+    text-shadow: 0 0 2px #fff, 0 0 8px var(--text-neon);
+}
+
+.pieces-card.is-side {
+    transform: scale(0.75);
+    z-index: 10;
+    opacity: 0.4;
+    filter: blur(3px) brightness(0.5);
+}
+
+.pieces-card.is-side .pieces-border {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+}
+
+.pieces-card.is-side .pieces-name {
+    opacity: 0;
+}
+
+/* ============================================
+   Diseño Web - Navegador Táctico
+   ============================================ */
+
+.web-layout {
+    display: flex;
+    gap: 20px;
+    height: 640px;
+    padding: 10px 0 20px 0;
+    width: 100%;
+}
+
+/* --- Menú lateral de proyectos --- */
+.web-sidebar {
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.web-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid rgba(201, 209, 217, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.4);
+    transform: skewX(-10deg);
+}
+
+.web-item:hover, .web-item.active {
+    border-color: var(--celes);
+    box-shadow: -4px 0 0 var(--celes);
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.web-item-icon {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 8px;
+    color: var(--grisesito);
+}
+
+.web-item.active .web-item-icon {
+    color: var(--celes);
+}
+
+.web-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: skewX(10deg);
+}
+
+.web-item-name {
+    font-family: "Nova Square", sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.web-item-status {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 6px;
+    letter-spacing: 1px;
+}
+
+/* --- El mini navegador central --- */
+.web-browser {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--moradiro);
+    background: #000;
+}
+
+/* Barra superior del navegador */
+.web-browser-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: rgba(163, 112, 247, 0.15);
+    border-bottom: 1px solid var(--moradiro);
+}
+
+.web-browser-url {
+    font-size: 11px;
+    color: var(--grisesito);
+    letter-spacing: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.web-browser-controls {
+    display: flex;
+    gap: 12px;
+    color: var(--moradiro);
+    font-size: 12px;
+    font-family: "Press Start 2P", system-ui;
+    flex-shrink: 0;
+}
+
+/* El Iframe */
+.web-browser-frame {
+    flex: 1;
+    position: relative;
+}
+
+.web-browser-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+}
+
+/* ============================================
+   Media Queries Database
+   ============================================ */
+
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+    .db-carousel-item.db-center img {
+        width: 240px;
+        height: 300px;
+    }
+
+    .db-carousel-item.db-side img {
+        width: 150px;
+        height: 195px;
+    }
+
+    .renders-layout {
+        height: 400px;
+    }
+
+    .renders-viewer-screen {
+        height: 320px;
+        min-height: 320px;
+        max-height: 320px;
+    }
+
+    .editorial-page img {
+        max-width: 500px;
+        max-height: 380px;
+    }
+
+    .edicion-monitors {
+        height: 500px;
+        max-height: 500px;
+    }
+
+    .web-layout {
+        height: 520px;
+    }
+
+    .pieces-wrapper {
+        height: 400px;
+    }
+
+    .pieces-card {
+        min-width: 220px;
+        height: 330px;
+    }
+}
+
+/* ── MÓVIL GRANDE (max 768px) ── */
+@media (max-width: 768px) {
+    .db-tabs-bar {
+        padding: 8px 8px 0;
+        gap: 2px;
+    }
+
+    .db-tab {
+        padding: 6px 10px 8px;
+        font-size: 9px;
+    }
+
+    .db-panel {
+        padding: 16px 8px;
+    }
+
+    /* Carrusel */
+    .db-carousel {
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .db-carousel-item.db-center img {
+        width: 180px;
+        height: 220px;
+    }
+
+    .db-carousel-item.db-side img {
+        width: 100px;
+        height: 130px;
+    }
+
+    /* Renders */
+    .renders-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .renders-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        max-height: none;
+    }
+
+    .renders-file {
+        width: auto;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .renders-viewer-screen {
+        height: 250px;
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    /* Editorial */
+    .editorial-spread {
+        gap: 6px;
+        padding: 12px 0;
+    }
+
+    .editorial-page img {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
+    /* Edicion */
+    .edicion-monitors {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+        max-height: none;
+        gap: 8px;
+    }
+
+    .edicion-monitor.focus {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .edicion-monitor.secondary {
+        grid-column: 1;
+    }
+
+    .edicion-video {
+        max-height: 200px;
+    }
+
+    .edicion-monitor.focus .edicion-video {
+        max-height: 300px;
+    }
+
+    /* Pieces */
+    .pieces-wrapper {
+        height: 320px;
+        transform: translateX(-150px);
+    }
+
+    .pieces-card {
+        min-width: 180px;
+        height: 270px;
+        margin: 0 18px;
+    }
+
+    /* Web */
+    .web-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .web-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .web-item {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .web-browser {
+        height: 400px;
+    }
+
+    .web-browser-frame {
+        height: 400px;
+    }
+}
+
+/* ── MÓVIL PEQUEÑO (max 480px) ── */
+@media (max-width: 480px) {
+    .db-tab {
+        font-size: 8px;
+        padding: 5px 8px 7px;
+    }
+
+    .db-carousel-item.db-center img {
+        width: 140px;
+        height: 175px;
+    }
+
+    .db-carousel-item.db-side img {
+        width: 80px;
+        height: 100px;
+    }
+
+    .renders-viewer-screen {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    .editorial-page img {
+        max-height: 240px;
+    }
+
+    .pieces-wrapper {
+        height: 260px;
+        transform: translateX(-100px);
+    }
+
+    .pieces-card {
+        min-width: 140px;
+        height: 210px;
+        margin: 0 12px;
+    }
+
+    .web-browser {
+        height: 320px;
+    }
+
+    .web-browser-frame {
+        height: 320px;
+    }
+}
