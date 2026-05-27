@@ -182,8 +182,8 @@ function renderEditorial() {
    ============================================ */
 
 const edicionVideos = [
-    { name: "EDIT_01.mp4", src: "video/tiradas.mp4" },
-    { name: "EDIT_02.mp4", src: "video/test project 1.mp4" },
+    { name: "EDIT_01.mp4", src: "video/tirada.mp4" },
+    { name: "EDIT_02.mp4", src: "video/test project.mp4" },
     { name: "EDIT_03.mp4", src: "video/rende.mp4" },
 ];
 
